@@ -10,33 +10,35 @@ function TinderCards() {
         },
         {
             name: 'Jeff Bezos',
-            url: 'https://image.cnbcfm.com/api/v1/image/105141369-Jeff_Bezos_Pad.jpg'    
+            url: 'https://assets.entrepreneur.com/content/3x2/2000/20150224165308-jeff-bezos-amazon.jpeg'    
         }
     ])
 
-    const swiped = () => {
-
+    const swiped = (direction, name) => {
+        // write functionality here
     }
 
-    const outOfFrame = () => {
-
+    const outOfFrame = (name) => {
+        // write functionality here
     }
 
     return (
         <div className="tinderCards">
             <div className="tinderCards_cardContainer">
                 {people.map(person => {
-                    <TinderCard 
-                        className="swipe"
-                        key={person.name}
-                        preventSwipe={['up', 'down']}
-                        onSwipe={(dir) => swiped(dir, person.name)}
-                        onCardLeftScreen={() => outOfFrame(person.name)}
-                    >
-                    <div style={{background: `url(${person.url})`}} className="card">
-                     <h3>{person.name}</h3>   
-                    </div>
-                    </TinderCard>
+                    return (
+                        <TinderCard 
+                            className="swipe"
+                            key={person.name}
+                            preventSwipe={['up', 'down']}
+                            onSwipe={(dir) => swiped(dir, person.name)}
+                            onCardLeftScreen={() => outOfFrame(person.name)}
+                        >
+                        <div style={{background: `url(${person.url})`}} className="card">
+                        <h3>{person.name}</h3>   
+                        </div>
+                        </TinderCard>
+                    )
                 })}
             </div>
         </div>
